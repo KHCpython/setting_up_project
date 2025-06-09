@@ -5,9 +5,9 @@
 
 1. 코드 내려받기
    터미널을 열고 아래 명령을 입력하세요.  
-   
+   ```powershell
    git clone https://github.com/KHCpython/setting_up_project.git
-   cd setting_up_project
+   cd setting_up_project```
 
 2. 가상환경 만들기 및 활성
 conda create -n ll_env python=3.12
