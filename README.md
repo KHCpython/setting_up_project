@@ -5,24 +5,30 @@
 
 추가적으로 ll_admin/ll_admin 계정으로 로그인 해야만 모든 글을 다 볼 수 있습니다. 다른 계정은 모든 글이 보이지 않습니다.
 
-1. 코드 내려받기
-   터미널을 열고 아래 명령을 입력하세요.  
-   ```powershell
-   git clone https://github.com/KHCpython/setting_up_project.git
-   cd setting_up_project```
+아래 명령어들을 아나콘다 프롬프트에 작성하세요(Y/N에선 Y 선택)
 
-2. 가상환경 만들기 및 활성
+1. 코드 내려받기
+git clone https://github.com/KHCpython/setting_up_project.git
+cd setting_up_project
+
+2. 가상환경 생성·활성화
 conda create -n ll_env python=3.12
 conda activate ll_env
 
-3. 패키지 설치하기
-pip install django
-pip freeze > requirements.txt
+3. Django 설치
+conda install django
 
-4. DB설정
+4. DB 마이그레이션
 python manage.py migrate
-python manage.py createsuperuser
 
-5. 실행
+5. DB로 불러오
+python manage.py loaddata fixtures/posts_fixture.json
+
+6. 슈퍼유저 생성 (아이디와 비밀번호 모두 ll_admin 으로 입력)
+python manage.py createsuperuser
+Username: ll_admin
+Password: ll_admin
+
+7. 개발 서버 실행
 python manage.py runserver
 
